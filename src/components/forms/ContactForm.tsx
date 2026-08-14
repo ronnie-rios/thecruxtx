@@ -1,0 +1,141 @@
+"use client";
+
+import { useState } from "react";
+import { SubmitButton } from "@/components/ui/Button";
+import { form, validation } from "@/content/contact";
+
+type Status = "idle" | "pending" | "success" | "error";
+type Errors = Partial<Record<string, string>>;
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function validate(values: Record<string, string>): Errors {
+  const errors: Errors = {};
+  for (const field of form.fields) {
+    const value = values[field.name]?.trim() ?? "";
+    if (field.required && !value) {
+      errors[field.name] = validation.required;
+    } else if (field.type === "email" && value && !EMAIL_PATTERN.test(value)) {
+      errors[field.name] = validation.email;
+    }
+  }
+  return errors;
+}
+
+const inputClass =
+  "w-full rounded-sm border border-slate-300 bg-white px-4 py-3 text-sm text-ink placeholder:text-slate-400 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent";
+
+export default function ContactForm() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errors, setErrors] = useState<Errors>({});
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const values = Object.fromEntries(
+      form.fields.map((f) => [f.name, String(data.get(f.name) ?? "")]),
+    );
+
+    const found = validate(values);
+    setErrors(found);
+    if (Object.keys(found).length > 0) return;
+
+    setStatus("pending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...values,
+          [form.honeypotName]: String(data.get(form.honeypotName) ?? ""),
+        }),
+      });
+      setStatus(res.ok ? "success" : "error");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <p
+        role="status"
+        className="rounded-sm border border-accent/40 bg-accent/5 px-6 py-8 text-center text-sm text-ink"
+      >
+        {form.successMessage}
+      </p>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} noValidate className="space-y-6">
+      <p className="text-sm text-slate-body">{form.intro}</p>
+
+      {form.fields.map((field) => {
+        const errorId = `${field.name}-error`;
+        const hasError = Boolean(errors[field.name]);
+        return (
+          <div key={field.name}>
+            <label
+              htmlFor={field.name}
+              className="mb-2 block text-xs font-semibold uppercase tracking-wider text-ink"
+            >
+              {field.label}
+              {field.required && <span className="text-accent"> *</span>}
+            </label>
+
+            {field.type === "textarea" ? (
+              <textarea
+                id={field.name}
+                name={field.name}
+                rows={5}
+                placeholder={field.placeholder}
+                aria-invalid={hasError}
+                aria-describedby={hasError ? errorId : undefined}
+                className={inputClass}
+              />
+            ) : (
+              <input
+                id={field.name}
+                name={field.name}
+                type={field.type}
+                placeholder={field.placeholder}
+                aria-invalid={hasError}
+                aria-describedby={hasError ? errorId : undefined}
+                className={inputClass}
+              />
+            )}
+
+            {hasError && (
+              <p id={errorId} className="mt-2 text-xs text-red-600">
+                {errors[field.name]}
+              </p>
+            )}
+          </div>
+        );
+      })}
+
+      {/* Honeypot — visually hidden, ignored by humans, filled by bots. */}
+      <div aria-hidden="true" className="absolute left-[-9999px]">
+        <label htmlFor={form.honeypotName}>Website</label>
+        <input
+          id={form.honeypotName}
+          name={form.honeypotName}
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
+      {status === "error" && (
+        <p role="alert" className="text-sm text-red-600">
+          {form.errorMessage}
+        </p>
+      )}
+
+      <SubmitButton pending={status === "pending"}>
+        {status === "pending" ? form.pendingLabel : form.submitLabel}
+      </SubmitButton>
+    </form>
+  );
+}
