@@ -1,4 +1,4 @@
-import type { Stat, TimelineEntry } from "./types";
+import type { Cta, Stat, TimelineEntry } from "./types";
 
 export const aboutMeta = {
   title: "About Us | Crux Consulting",
@@ -63,4 +63,5 @@ export const story = {
 export const aboutContact = {
   heading: "Contact Us Today!",
   body: "Get in touch with us today and let us help!",
+  cta: { label: "Book Now", href: "/contact", variant: "solid" } satisfies Cta,
 } as const;

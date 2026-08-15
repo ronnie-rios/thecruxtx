@@ -18,7 +18,7 @@ export default function Team({
   withBio?: boolean;
 }) {
   return (
-    <section className="bg-crux-cloud py-20 sm:py-28">
+    <section className="bg-white py-20 sm:py-28">
       <Container>
         <Reveal className="flex justify-center">
           <SectionHeading align="center">{heading}</SectionHeading>

@@ -1,7 +1,9 @@
 ﻿import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
+import { Button } from "@/components/ui/Button";
 import { marc } from "@/content/site";
+import type { Cta } from "@/content/types";
 
 /**
  * One contact card, centered. Marc is the sole point of contact.
@@ -9,9 +11,11 @@ import { marc } from "@/content/site";
 export default function ContactCards({
   heading,
   body,
+  cta,
 }: {
   heading: string;
   body: string;
+  cta?: Cta;
 }) {
   return (
     <section className="py-20 sm:py-28">
@@ -21,6 +25,13 @@ export default function ContactCards({
           <p className="mt-6 max-w-xl text-center text-base leading-relaxed text-crux-gray">
             {body}
           </p>
+          {cta && (
+            <div className="mt-8">
+              <Button href={cta.href} variant={cta.variant}>
+                {cta.label}
+              </Button>
+            </div>
+          )}
         </Reveal>
 
         <Reveal delay={0.1}>

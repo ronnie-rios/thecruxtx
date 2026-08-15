@@ -31,7 +31,11 @@ export default function AboutPage() {
       <Team heading={advisorSection.heading} person={marc} withBio />
       <Timeline />
       <Testimonials heading={testimonialsSection.heading} items={testimonials} />
-      <ContactCards heading={aboutContact.heading} body={aboutContact.body} />
+      <ContactCards
+        heading={aboutContact.heading}
+        body={aboutContact.body}
+        cta={aboutContact.cta}
+      />
     </>
   );
 }

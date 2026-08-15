@@ -1,32 +1,106 @@
-﻿import Container from "@/components/ui/Container";
+"use client";
+
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import { story } from "@/content/about";
 
 export default function Timeline() {
+  const railRef = useRef<HTMLOListElement>(null);
+  const reduceMotion = useReducedMotion();
+
+  // Track the rail from when its top reaches the viewport's lower third until
+  // its bottom clears the middle — the fill then completes as the last entry
+  // lands, rather than only once the section has scrolled fully past.
+  const { scrollYProgress } = useScroll({
+    target: railRef,
+    offset: ["start 85%", "end 55%"],
+  });
+
+  // Spring keeps the fill from twitching with wheel/trackpad jitter.
+  const fillScale = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 28,
+    restDelta: 0.001,
+  });
+
   return (
-    <section className="bg-crux-cloud py-20 sm:py-28">
+    <section className="bg-white py-20 sm:py-28">
       <Container>
         <Reveal className="flex flex-col items-center">
           <SectionHeading align="center">{story.heading}</SectionHeading>
         </Reveal>
 
-        <ol className="mx-auto mt-14 max-w-2xl border-l border-border-subtle">
-          {story.entries.map((entry, i) => (
-            <Reveal key={entry.date} delay={i * 0.05}>
-              <li className="relative pb-10 pl-8 last:pb-0">
-                <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-crux-blue" />
-                <p className="text-xs font-semibold uppercase tracking-wider text-crux-blue">
-                  {entry.date}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-crux-gray">
-                  {entry.label}
-                </p>
+        <ol
+          ref={railRef}
+          className="relative mx-auto mt-14 max-w-3xl sm:mt-20"
+        >
+          {/* The rail: a static track with a blue fill scaled by scroll. On
+              mobile it sits at the far left; on sm+ it runs down the centre. */}
+          <div
+            aria-hidden
+            className="absolute inset-y-0 left-1.25 w-px bg-border-subtle sm:left-1/2 sm:-translate-x-1/2"
+          >
+            <motion.div
+              className="h-full w-full origin-top bg-crux-blue"
+              style={{ scaleY: reduceMotion ? 1 : fillScale }}
+            />
+          </div>
+
+          {story.entries.map((entry, i) => {
+            // Alternate sides on sm+; every entry sits right of the rail on mobile.
+            const onLeft = i % 2 === 0;
+
+            return (
+              <li
+                key={entry.date}
+                className="relative pb-12 pl-8 last:pb-0 sm:grid sm:grid-cols-2 sm:gap-x-16 sm:pl-0"
+              >
+                <Dot reduceMotion={reduceMotion} />
+
+                <Reveal
+                  delay={0.05}
+                  className={
+                    onLeft
+                      ? "sm:col-start-1 sm:text-right"
+                      : "sm:col-start-2 sm:text-left"
+                  }
+                >
+                  <p className="font-display text-base font-bold text-crux-slate sm:text-lg">
+                    {entry.date}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-crux-gray">
+                    {entry.label}
+                  </p>
+                </Reveal>
               </li>
-            </Reveal>
-          ))}
+            );
+          })}
         </ol>
       </Container>
     </section>
+  );
+}
+
+/**
+ * The node on the rail. Sits at the far left on mobile and on the centre line
+ * from sm up, matching the rail's own position.
+ */
+function Dot({ reduceMotion }: { reduceMotion: boolean | null }) {
+  return (
+    <span
+      aria-hidden
+      className="absolute left-0 top-1.5 z-10 h-2.5 w-2.5 sm:left-1/2 sm:-translate-x-1/2"
+    >
+      <motion.span
+        className="block h-full w-full rounded-full bg-crux-blue"
+        initial={reduceMotion ? false : { scale: 0.4, opacity: 0.35 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true, amount: 1 }}
+        transition={{ duration: 0.28, ease: [0.2, 0, 0, 1] }}
+      />
+    </span>
   );
 }
