@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
@@ -22,13 +22,15 @@ export default function WhoWeAre() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1}>
+          {/* Decorative only — hidden on mobile, where a square image costs a
+              screenful of scroll without adding information. */}
+          <Reveal delay={0.1} className="hidden md:block">
             <Image
               src="/Mountain-Peak_BW1-split.png"
               alt=""
               width={720}
               height={720}
-              sizes="(min-width: 768px) 50vw, 100vw"
+              sizes="50vw"
               className="h-auto w-full rounded-lg object-cover"
             />
           </Reveal>

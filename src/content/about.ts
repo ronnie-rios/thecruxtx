@@ -9,7 +9,7 @@ export const aboutMeta = {
 export const aboutHero = {
   heading: "Who We Are",
   body: "We serve business owners that have grown their business to a point that requires new knowledge and experience to scale to the next level.",
-  image: "/about/hero.jpg",
+  image: "/about/aboutpg-hero.jpg",
 } as const;
 
 export const mission = {

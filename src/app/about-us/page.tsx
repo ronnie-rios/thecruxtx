@@ -22,7 +22,11 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHero heading={aboutHero.heading} body={aboutHero.body} />
+      <PageHero
+        heading={aboutHero.heading}
+        body={aboutHero.body}
+        image={aboutHero.image}
+      />
       <Mission />
       <Team heading={advisorSection.heading} person={marc} withBio />
       <Timeline />

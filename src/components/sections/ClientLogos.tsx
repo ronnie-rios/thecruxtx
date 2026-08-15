@@ -8,7 +8,7 @@ export default function ClientLogos() {
     <section className="border-y border-border-subtle bg-white py-16">
       <Container>
         <Reveal>
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-crux-gray">
+          <p className="text-center text-sm font-semibold uppercase tracking-[0.25em] text-crux-gray">
             {clients.heading}
           </p>
           <div className="mt-10 grid grid-cols-2 items-center gap-10 sm:grid-cols-4">
