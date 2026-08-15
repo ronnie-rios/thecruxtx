@@ -6,7 +6,6 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Reveal from "@/components/ui/Reveal";
 import type { Testimonial } from "@/content/types";
 
 const ROTATE_MS = 7000;
@@ -64,9 +63,9 @@ export default function Testimonials({
       </div>
 
       <Container>
-        <Reveal className="flex flex-col items-center">
+        <div className="flex flex-col items-center">
           <SectionHeading align="center">{heading}</SectionHeading>
-        </Reveal>
+        </div>
 
         <div
           className="relative mx-auto mt-14 max-w-3xl"

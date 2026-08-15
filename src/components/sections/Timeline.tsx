@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Reveal from "@/components/ui/Reveal";
 import { story } from "@/content/about";
 
 export default function Timeline() {
@@ -29,9 +28,9 @@ export default function Timeline() {
   return (
     <section className="bg-white py-20 sm:py-28">
       <Container>
-        <Reveal className="flex flex-col items-center">
+        <div className="flex flex-col items-center">
           <SectionHeading align="center">{story.heading}</SectionHeading>
-        </Reveal>
+        </div>
 
         <ol
           ref={railRef}
@@ -58,10 +57,9 @@ export default function Timeline() {
                 key={entry.date}
                 className="relative pb-12 pl-8 last:pb-0 sm:grid sm:grid-cols-2 sm:gap-x-16 sm:pl-0"
               >
-                <Dot reduceMotion={reduceMotion} />
+                <Dot />
 
-                <Reveal
-                  delay={0.05}
+                <div
                   className={
                     onLeft
                       ? "sm:col-start-1 sm:text-right"
@@ -74,7 +72,7 @@ export default function Timeline() {
                   <p className="mt-2 text-sm leading-relaxed text-crux-gray">
                     {entry.label}
                   </p>
-                </Reveal>
+                </div>
               </li>
             );
           })}
@@ -88,19 +86,11 @@ export default function Timeline() {
  * The node on the rail. Sits at the far left on mobile and on the centre line
  * from sm up, matching the rail's own position.
  */
-function Dot({ reduceMotion }: { reduceMotion: boolean | null }) {
+function Dot() {
   return (
     <span
       aria-hidden
-      className="absolute left-0 top-1.5 z-10 h-2.5 w-2.5 sm:left-1/2 sm:-translate-x-1/2"
-    >
-      <motion.span
-        className="block h-full w-full rounded-full bg-crux-blue"
-        initial={reduceMotion ? false : { scale: 0.4, opacity: 0.35 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ once: true, amount: 1 }}
-        transition={{ duration: 0.28, ease: [0.2, 0, 0, 1] }}
-      />
-    </span>
+      className="absolute left-0 top-1.5 z-10 h-2.5 w-2.5 rounded-full bg-crux-blue sm:left-1/2 sm:-translate-x-1/2"
+    />
   );
 }

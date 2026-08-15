@@ -1,6 +1,5 @@
 ﻿import Image from "next/image";
 import Container from "@/components/ui/Container";
-import Reveal from "@/components/ui/Reveal";
 import { cruxDefinition, mission, stats } from "@/content/about";
 
 export default function Mission() {
@@ -8,7 +7,7 @@ export default function Mission() {
     <section className="bg-white py-20 sm:py-28">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <Reveal>
+          <div>
             <h2 className="text-h1 font-bold text-crux-slate">
               {mission.heading}
             </h2>
@@ -34,10 +33,10 @@ export default function Mission() {
                 </div>
               ))}
             </dl>
-          </Reveal>
+          </div>
 
           {/* Decorative only — hidden on mobile, matching Who We Are. */}
-          <Reveal delay={0.1} className="hidden lg:block">
+          <div className="hidden lg:block">
             <div className="mx-auto max-w-md lg:mr-0">
               <Image
                 src={cruxDefinition.image}
@@ -48,7 +47,7 @@ export default function Mission() {
                 className="w-full object-cover "
               />
             </div>
-          </Reveal>
+          </div>
         </div>
       </Container>
     </section>

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import PageHero from "@/components/sections/PageHero";
 import ContactForm from "@/components/forms/ContactForm";
 import Container from "@/components/ui/Container";
-import Reveal from "@/components/ui/Reveal";
 import { contactHero, contactMeta, contactSection } from "@/content/contact";
 import { marc } from "@/content/site";
 
@@ -23,7 +22,7 @@ export default function ContactPage() {
       <section className="py-20 sm:py-28">
         <Container>
           <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
-            <Reveal>
+            <div>
               <h2 className="text-h1 font-bold text-crux-slate">
                 {contactSection.heading}
               </h2>
@@ -54,13 +53,11 @@ export default function ContactPage() {
                   </a>
                 </dd>
               </dl>
-            </Reveal>
+            </div>
 
-            <Reveal delay={0.1}>
-              <div className="rounded-lg border border-border-subtle bg-white p-8 shadow-md">
-                <ContactForm />
-              </div>
-            </Reveal>
+            <div className="rounded-lg border border-border-subtle bg-white p-8 shadow-md">
+              <ContactForm />
+            </div>
           </div>
         </Container>
       </section>

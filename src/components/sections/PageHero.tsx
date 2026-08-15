@@ -1,6 +1,5 @@
 ﻿import Image from "next/image";
 import Container from "@/components/ui/Container";
-import Reveal from "@/components/ui/Reveal";
 
 export default function PageHero({
   heading,
@@ -33,15 +32,13 @@ export default function PageHero({
       )}
 
       <Container>
-        <Reveal className="max-w-3xl">
-          <h1 className="text-h1 font-bold text-white">
-            {heading}
-          </h1>
+        <div className="max-w-3xl">
+          <h1 className="text-h1 font-bold text-white">{heading}</h1>
           <span className="mt-5 block h-1.25 w-16 bg-crux-blue" />
           <p className="mt-7 text-base leading-relaxed text-white/80 sm:text-lg">
             {body}
           </p>
-        </Reveal>
+        </div>
       </Container>
     </section>
   );

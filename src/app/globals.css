@@ -120,14 +120,7 @@ h4 {
   font-variant-numeric: tabular-nums;
 }
 
-/* Anchored sections sit below the sticky header when jumped to. */
+/* Anchored sections sit below the fixed header when jumped to. */
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  scroll-padding-top: 6rem;
 }

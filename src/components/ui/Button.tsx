@@ -2,7 +2,7 @@
 import type { ReactNode } from "react";
 
 const base =
-  "inline-flex items-center justify-center rounded-md px-7 py-3 text-sm font-semibold uppercase tracking-wide transition-all duration-200 ease-crux focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-crux-blue/45 motion-reduce:transform-none motion-reduce:transition-none";
+  "inline-flex items-center justify-center rounded-md px-7 py-3 text-sm font-semibold uppercase tracking-wide transition-[background-color,border-color,color] duration-150 ease-out focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-crux-blue/45 active:scale-[0.97] active:transition-transform active:duration-100 motion-reduce:transform-none motion-reduce:transition-none";
 
 const variants = {
   solid:

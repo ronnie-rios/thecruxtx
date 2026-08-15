@@ -1,10 +1,14 @@
-﻿import Image from "next/image";
+﻿"use client";
+
+import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import Container from "@/components/ui/Container";
-import Reveal from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { hero } from "@/content/home";
 
 export default function Hero() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section className="relative isolate overflow-hidden bg-gray-900">
       <Image
@@ -19,7 +23,12 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gray-900/65" />
 
       <Container className="relative py-28 sm:py-40">
-        <Reveal className="max-w-2xl">
+        <motion.div
+          className="max-w-2xl"
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.165, 0.84, 0.44, 1] }}
+        >
           <h1 className="text-display font-bold text-white">
             {hero.headlineLead}{" "}
             <span className="text-crux-blue">{hero.headlineEmphasis}</span>
@@ -38,7 +47,7 @@ export default function Hero() {
               </Button>
             ))}
           </div>
-        </Reveal>
+        </motion.div>
       </Container>
     </section>
   );
