@@ -17,8 +17,8 @@ export default function ClientLogos() {
               alt={logo.name}
               width={768}
               height={300}
-              sizes="180px"
-              className="mx-auto h-14 w-auto object-contain opacity-60 grayscale transition duration-200 ease-crux hover:opacity-100 hover:grayscale-0 motion-reduce:transition-none"
+              sizes="240px"
+              className="mx-auto h-20 w-auto object-contain opacity-60 grayscale transition duration-200 ease-crux hover:opacity-100 hover:grayscale-0 motion-reduce:transition-none"
             />
           ))}
         </div>
