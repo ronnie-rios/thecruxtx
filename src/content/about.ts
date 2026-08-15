@@ -21,7 +21,7 @@ export const cruxDefinition = {
   definition:
     "In climbing and mountaineering “the crux of the climb” is the most difficult and technically challenging section of a route or the place where the greatest danger exists.",
   emphasis: "The crux of the climb is our passion.",
-  image: "/about/crux.jpg",
+  image: "/Mountain-Peak_BW1-split.png",
 } as const;
 
 export const stats: readonly Stat[] = [

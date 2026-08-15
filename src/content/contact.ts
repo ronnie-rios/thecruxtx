@@ -9,6 +9,7 @@ export const contactMeta = {
 export const contactHero = {
   heading: "Get in Touch",
   body: "We guide clients through the financial and operational challenges that come with growth.",
+  image: "/contact-mtn-hero.jpg",
 } as const;
 
 export const contactSection = {
@@ -38,6 +39,7 @@ export const form = {
       type: "tel",
       placeholder: "(555) 555-5555",
       required: true,
+      half: true,
     },
     {
       name: "email",
@@ -45,6 +47,7 @@ export const form = {
       type: "email",
       placeholder: "you@company.com",
       required: true,
+      half: true,
     },
     {
       name: "subject",

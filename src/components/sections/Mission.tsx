@@ -7,27 +7,16 @@ export default function Mission() {
   return (
     <section className="py-20 sm:py-28">
       <Container>
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <h2 className="text-2xl font-bold leading-snug text-crux-slate sm:text-3xl">
-            {mission.heading}
-          </h2>
-          <p className="mt-6 text-base leading-relaxed text-crux-gray">
-            {mission.body}
-          </p>
-        </Reveal>
-
-        <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal>
-            <Image
-              src={cruxDefinition.image}
-              alt=""
-              width={640}
-              height={460}
-              className="w-full rounded-sm object-cover"
-            />
-          </Reveal>
-          <Reveal delay={0.1}>
-            <blockquote className="border-l-2 border-crux-blue pl-6 text-base leading-relaxed text-crux-gray">
+            <h2 className="text-h2 font-bold leading-snug text-crux-slate sm:text-h1">
+              {mission.heading}
+            </h2>
+            <span className="mt-5 block h-1.25 w-16 bg-crux-blue" />
+            <p className="mt-7 text-base leading-relaxed text-crux-gray">
+              {mission.body}
+            </p>
+            <blockquote className="mt-8 border-l-2 border-crux-blue pl-6 text-base leading-relaxed text-crux-gray">
               {cruxDefinition.definition}
             </blockquote>
             <p className="mt-7 text-xl font-bold uppercase tracking-tight text-crux-slate">
@@ -45,6 +34,19 @@ export default function Mission() {
                 </div>
               ))}
             </dl>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="mx-auto max-w-md lg:mr-0">
+              <Image
+                src={cruxDefinition.image}
+                alt=""
+                width={640}
+                height={640}
+                sizes="(min-width: 1024px) 28rem, 100vw"
+                className="w-full rounded-lg object-cover shadow-md"
+              />
+            </div>
           </Reveal>
         </div>
       </Container>

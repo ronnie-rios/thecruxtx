@@ -51,4 +51,6 @@ export type FormField = {
   type: "text" | "tel" | "email" | "textarea";
   placeholder: string;
   required: boolean;
+  /** Renders at half width on wider screens, so two fields share a row. */
+  half?: boolean;
 };

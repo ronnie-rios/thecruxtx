@@ -68,14 +68,21 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-6">
-      <p className="text-sm text-crux-gray">{form.intro}</p>
+    <form
+      onSubmit={handleSubmit}
+      noValidate
+      className="grid grid-cols-1 gap-6 sm:grid-cols-2"
+    >
+      <p className="text-sm text-crux-gray sm:col-span-2">{form.intro}</p>
 
       {form.fields.map((field) => {
         const errorId = `${field.name}-error`;
         const hasError = Boolean(errors[field.name]);
         return (
-          <div key={field.name}>
+          <div
+            key={field.name}
+            className={field.half ? "sm:col-span-1" : "sm:col-span-2"}
+          >
             <label
               htmlFor={field.name}
               className="mb-2 block text-xs font-semibold uppercase tracking-wider text-crux-slate"
@@ -107,7 +114,7 @@ export default function ContactForm() {
             )}
 
             {hasError && (
-              <p id={errorId} className="mt-2 text-xs text-red-600">
+              <p id={errorId} className="mt-2 text-xs text-danger">
                 {errors[field.name]}
               </p>
             )}
@@ -116,7 +123,7 @@ export default function ContactForm() {
       })}
 
       {/* Honeypot — visually hidden, ignored by humans, filled by bots. */}
-      <div aria-hidden="true" className="absolute left-[-9999px]">
+      <div aria-hidden="true" className="absolute left-[-9999px] sm:col-span-2">
         <label htmlFor={form.honeypotName}>Website</label>
         <input
           id={form.honeypotName}
@@ -128,14 +135,16 @@ export default function ContactForm() {
       </div>
 
       {status === "error" && (
-        <p role="alert" className="text-sm text-red-600">
+        <p role="alert" className="text-sm text-danger sm:col-span-2">
           {form.errorMessage}
         </p>
       )}
 
-      <SubmitButton pending={status === "pending"}>
-        {status === "pending" ? form.pendingLabel : form.submitLabel}
-      </SubmitButton>
+      <div className="sm:col-span-2">
+        <SubmitButton pending={status === "pending"}>
+          {status === "pending" ? form.pendingLabel : form.submitLabel}
+        </SubmitButton>
+      </div>
     </form>
   );
 }
