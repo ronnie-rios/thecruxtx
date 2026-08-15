@@ -21,16 +21,18 @@ export default function WhoWeAre() {
             </div>
           </div>
 
-          {/* Decorative only — hidden on mobile, where a square image costs a
-              screenful of scroll without adding information. */}
+          {/* Decorative only — hidden on mobile, where the image costs a
+              screenful of scroll without adding information. Capped at the
+              source's native 439px: the file has no detail beyond that, so
+              letting it fill the column just upscales it into mush. */}
           <div className="hidden md:block">
             <Image
               src="/Mountain-Peak_BW1-split.png"
               alt=""
-              width={720}
-              height={720}
-              sizes="50vw"
-              className="h-auto w-full object-cover"
+              width={439}
+              height={660}
+              sizes="439px"
+              className="mx-auto h-auto w-full max-w-[439px]"
             />
           </div>
         </div>

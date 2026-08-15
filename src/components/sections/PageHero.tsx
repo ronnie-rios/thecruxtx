@@ -12,7 +12,7 @@ export default function PageHero({
 }) {
   return (
     <section
-      className={`relative isolate overflow-hidden py-28 sm:py-40 ${
+      className={`relative isolate flex min-h-104 items-center overflow-hidden py-32 sm:min-h-128 sm:py-40 ${
         image ? "bg-gray-900" : "bg-crux-navy"
       }`}
     >

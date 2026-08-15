@@ -22,7 +22,7 @@ export default function Hero() {
       {/* Neutral scrim — keeps the photo legible without tinting it. */}
       <div className="absolute inset-0 bg-gray-900/65" />
 
-      <Container className="relative py-28 sm:py-40">
+      <Container className="relative py-32 sm:py-40">
         <motion.div
           className="max-w-2xl"
           initial={reduceMotion ? false : { opacity: 0, y: 16 }}
