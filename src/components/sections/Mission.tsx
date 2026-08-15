@@ -5,7 +5,7 @@ import { cruxDefinition, mission, stats } from "@/content/about";
 
 export default function Mission() {
   return (
-    <section className="py-20 sm:py-28">
+    <section className="bg-white py-20 sm:py-28">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal>
@@ -36,7 +36,8 @@ export default function Mission() {
             </dl>
           </Reveal>
 
-          <Reveal delay={0.1}>
+          {/* Decorative only — hidden on mobile, matching Who We Are. */}
+          <Reveal delay={0.1} className="hidden lg:block">
             <div className="mx-auto max-w-md lg:mr-0">
               <Image
                 src={cruxDefinition.image}
@@ -44,7 +45,7 @@ export default function Mission() {
                 width={640}
                 height={640}
                 sizes="(min-width: 1024px) 28rem, 100vw"
-                className="w-full rounded-lg object-cover shadow-md"
+                className="w-full object-cover "
               />
             </div>
           </Reveal>

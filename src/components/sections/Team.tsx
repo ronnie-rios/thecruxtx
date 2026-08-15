@@ -51,7 +51,9 @@ export default function Team({
                   {person.title}
                 </p>
                 {withBio && person.bio && (
-                  <div className="mt-5 space-y-4 text-sm leading-relaxed text-crux-gray">
+                  // Left-aligned even on mobile: centring multi-paragraph copy
+                  // rags the left edge and slows reading on a narrow column.
+                  <div className="mt-5 space-y-4 text-left text-sm leading-relaxed text-crux-gray">
                     {person.bio.map((paragraph) => (
                       <p key={paragraph.slice(0, 40)}>{paragraph}</p>
                     ))}

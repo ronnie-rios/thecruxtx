@@ -31,7 +31,7 @@ export default function WhoWeAre() {
               width={720}
               height={720}
               sizes="50vw"
-              className="h-auto w-full rounded-lg object-cover"
+              className="h-auto w-full object-cover"
             />
           </Reveal>
         </div>

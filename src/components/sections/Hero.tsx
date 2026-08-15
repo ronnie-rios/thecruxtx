@@ -13,7 +13,7 @@ export default function Hero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover grayscale"
+        className="object-cover object-top grayscale"
       />
       {/* Neutral scrim — keeps the photo legible without tinting it. */}
       <div className="absolute inset-0 bg-gray-900/65" />
