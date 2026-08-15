@@ -11,7 +11,7 @@ export default function Timeline() {
           <SectionHeading align="center">{story.heading}</SectionHeading>
         </Reveal>
 
-        <ol className="mx-auto mt-14 max-w-2xl border-l border-slate-300">
+        <ol className="mx-auto mt-14 max-w-2xl border-l border-border-subtle">
           {story.entries.map((entry, i) => (
             <Reveal key={entry.date} delay={i * 0.05}>
               <li className="relative pb-10 pl-8 last:pb-0">

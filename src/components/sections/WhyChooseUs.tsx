@@ -1,6 +1,7 @@
 ﻿import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
+import CountUp from "@/components/ui/CountUp";
 import { whyChooseUs } from "@/content/home";
 
 export default function WhyChooseUs() {
@@ -14,9 +15,11 @@ export default function WhyChooseUs() {
               {whyChooseUs.tagline}
             </p>
             <div className="mt-10 flex items-baseline gap-4">
-              <span className="text-6xl font-bold text-crux-blue">
-                {whyChooseUs.experience.value}
-              </span>
+              <CountUp
+                to={whyChooseUs.experience.value}
+                suffix={whyChooseUs.experience.suffix}
+                className="text-6xl font-bold text-crux-blue"
+              />
               <span className="text-sm font-semibold uppercase tracking-wider text-crux-gray">
                 {whyChooseUs.experience.label}
               </span>

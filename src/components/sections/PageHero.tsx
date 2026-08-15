@@ -15,7 +15,7 @@ export default function PageHero({
           <h1 className="text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">
             {heading}
           </h1>
-          <span className="mt-5 block h-0.5 w-16 bg-crux-blue" />
+          <span className="mt-5 block h-1.25 w-16 bg-crux-blue" />
           <p className="mt-7 text-base leading-relaxed text-white/80 sm:text-lg">
             {body}
           </p>

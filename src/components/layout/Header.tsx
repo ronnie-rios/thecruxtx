@@ -12,7 +12,13 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    // Hysteresis: the header shrinks at 80px but only grows back below 20px.
+    // A single threshold oscillates, because shrinking the header shifts the
+    // page up and can drop scrollY back under the same value.
+    const onScroll = () =>
+      setScrolled((wasScrolled) =>
+        wasScrolled ? window.scrollY > 20 : window.scrollY > 80,
+      );
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -26,7 +32,7 @@ export default function Header() {
     >
       <Container>
         <div
-          className={`flex items-center justify-between transition-all duration-200 ${
+          className={`flex items-center justify-between transition-[height] duration-200 ease-crux motion-reduce:transition-none ${
             scrolled ? "h-16" : "h-20"
           }`}
         >
@@ -64,7 +70,7 @@ export default function Header() {
         </div>
 
         {menuOpen && (
-          <nav className="md:hidden border-t border-slate-200 py-4 flex flex-col gap-4">
+          <nav className="md:hidden border-t border-border-subtle py-4 flex flex-col gap-4">
             {nav.map((link) => (
               <Link
                 key={link.href}

@@ -30,7 +30,7 @@ export const marc: Person = {
   title: "Chief Executive Officer",
   phone: "(512) 461-0462",
   email: "marc@thecruxtx.com",
-  image: "/team/marc-berger.jpg",
+  image: "/team/Marc-berger-748x1024.jpeg",
   bio: [
     "Marc is a passionate CPA that has been helping small and medium-sized businesses navigate their tax and accounting responsibilities for more than 20 years!",
     "Marc was a partner of McGinnis & Berger, LLP, a traditional CPA firm in Central TX for most of his early career. In 2016, Marc launched Purely Solutions, LLC a tech-enabled tax and accounting advisory firm that experienced rapid growth before being acquired by LegalZoom in late 2020. Under Marc's leadership Purely Solutions, LLC was re-branded as LZ Tax, a subsidiary of LegalZoom, and quickly became one of the fastest growing online tax preparation offerings in the market today.",

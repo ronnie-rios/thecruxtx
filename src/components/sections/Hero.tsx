@@ -6,16 +6,17 @@ import { hero } from "@/content/home";
 
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-crux-navy">
+    <section className="relative isolate overflow-hidden bg-gray-900">
       <Image
         src={hero.image}
         alt=""
         fill
         priority
         sizes="100vw"
-        className="object-cover opacity-40"
+        className="object-cover grayscale"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-crux-navy via-crux-navy/80 to-transparent" />
+      {/* Neutral scrim — keeps the photo legible without tinting it. */}
+      <div className="absolute inset-0 bg-gray-900/65" />
 
       <Container className="relative py-28 sm:py-40">
         <Reveal className="max-w-2xl">
@@ -31,8 +32,7 @@ export default function Hero() {
               <Button
                 key={cta.label}
                 href={cta.href}
-                variant={cta.variant}
-                className={cta.variant === "outline" ? "text-white" : ""}
+                variant={cta.variant === "outline" ? "outlineOnDark" : cta.variant}
               >
                 {cta.label}
               </Button>

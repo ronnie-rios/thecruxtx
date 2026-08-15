@@ -9,6 +9,10 @@ const variants = {
     "bg-crux-blue text-white hover:bg-accent-hover active:bg-accent-active active:translate-y-px",
   outline:
     "border border-crux-blue text-crux-blue hover:bg-accent-soft active:bg-crux-blue-light/40 active:translate-y-px",
+  // For dark surfaces (hero, footer): tints toward white instead of toward the
+  // light accent, which would wash out against white text.
+  outlineOnDark:
+    "border border-white/70 text-white hover:border-white hover:bg-white/10 active:bg-white/20 active:translate-y-px focus-visible:ring-white/60",
 } as const;
 
 type Variant = keyof typeof variants;

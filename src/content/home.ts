@@ -15,7 +15,7 @@ export const hero = {
     { label: "Let's Start", href: "/contact", variant: "solid" },
     { label: "Contact Us", href: "/contact", variant: "outline" },
   ] satisfies readonly Cta[],
-  image: "/hero.jpg",
+  image: "/hero-img-mtn.jpg",
 } as const;
 
 export const whoWeAre = {
@@ -61,16 +61,22 @@ export const whyChooseUs = {
     "We understand cross-border operational challenges. Marc is fluent in Spanish and has worked with companies navigating the cross-border challenges and complexities of operating a business in both the U.S. and Mexico.",
     "We believe in transparency and will make an impact. We provide our clients with an honest, thorough, and data driven assessment of their business with an intent on maximizing success.",
   ],
-  experience: { value: "15", label: "Years of Experience" },
+  experience: { value: 20, suffix: "+", label: "Years of Experience" },
 } as const;
 
 export const clients = {
   heading: "Trusted By",
   logos: [
-    { name: "Cheesy Jane's", image: "/clients/cheesy-janes.png" },
-    { name: "CircleBarA", image: "/clients/circle-bar-a.png" },
-    { name: "Lonestar Orange Shirt", image: "/clients/lonestar-orange-shirt.png" },
-    { name: "Blackwater Logistics", image: "/clients/blackwater-logistics.png" },
+    { name: "Cheesy Jane's", image: "/clients/Cheesy-Janes-Logo1.png" },
+    { name: "CircleBarA", image: "/clients/CircleBarA-Logo.png" },
+    {
+      name: "Lonestar Orange Shirt",
+      image: "/clients/LonestarOrangeShirtLogo-768x280.png",
+    },
+    {
+      name: "Blackwater Logistics",
+      image: "/clients/Blackwater-Logistics-Logo-2-768x312.png",
+    },
   ] satisfies readonly ClientLogo[],
 } as const;
 

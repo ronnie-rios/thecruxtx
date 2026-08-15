@@ -25,14 +25,23 @@ export default function Team({
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mx-auto mt-14 max-w-3xl">
-            <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-start">
+          {/* Without a bio the pair is compact, so w-fit lets mx-auto centre it;
+              with one it fills the measure and the text sits alongside. */}
+          <div
+            className={`mx-auto mt-14 max-w-3xl ${withBio ? "w-full" : "w-fit"}`}
+          >
+            <div
+              className={`flex flex-col items-center gap-8 sm:flex-row ${
+                withBio ? "sm:items-start" : "sm:items-center"
+              }`}
+            >
               <Image
                 src={person.image}
                 alt={person.name}
-                width={220}
-                height={220}
-                className="h-48 w-48 shrink-0 rounded-full object-cover sm:h-56 sm:w-56"
+                width={748}
+                height={1024}
+                sizes="(min-width: 640px) 240px, 208px"
+                className="h-64 w-52 shrink-0 rounded-lg object-cover object-top shadow-sm sm:h-72 sm:w-60"
               />
               <div className="text-center sm:text-left">
                 <h3 className="text-xl font-bold uppercase tracking-wide text-crux-slate">
