@@ -14,7 +14,7 @@ export default function SectionHeading({
   return (
     <div className={align === "center" ? "text-center" : ""}>
       <h2
-        className={`text-h2 sm:text-h1 font-bold uppercase tracking-wide ${
+        className={`text-h1 font-bold ${
           tone === "light" ? "text-white" : "text-crux-slate"
         } ${className}`}
       >

@@ -25,7 +25,7 @@ export default function ContactCards({
 
         <Reveal delay={0.1}>
           <div className="mx-auto mt-12 max-w-sm rounded-lg border border-border-subtle bg-white p-8 text-center shadow-sm">
-            <h3 className="text-lg font-bold uppercase tracking-wide text-crux-slate">
+            <h3 className="text-h3 font-bold text-crux-slate">
               {marc.name}
             </h3>
             <p className="mt-1 text-sm font-medium uppercase tracking-wider text-crux-blue">

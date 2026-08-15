@@ -32,7 +32,7 @@ export default function WhatWeDo() {
                 <p className="text-3xl font-bold text-crux-blue/40">
                   {service.number}
                 </p>
-                <h3 className="mt-4 text-lg font-bold uppercase tracking-wide text-crux-slate">
+                <h3 className="mt-4 text-h3 font-bold text-crux-slate">
                   {service.title}
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-crux-gray">

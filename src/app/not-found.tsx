@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <Container className="py-32 text-center">
       <p className="text-6xl font-bold text-crux-blue">{notFound.code}</p>
-      <h1 className="mt-6 text-2xl font-bold uppercase tracking-tight text-crux-slate">
+      <h1 className="mt-6 text-h2 font-bold text-crux-slate">
         {notFound.heading}
       </h1>
       <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-crux-gray">

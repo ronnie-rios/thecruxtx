@@ -24,7 +24,7 @@ export default function ContactPage() {
         <Container>
           <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal>
-              <h2 className="text-h2 font-bold uppercase tracking-wide text-crux-slate sm:text-h1">
+              <h2 className="text-h1 font-bold text-crux-slate">
                 {contactSection.heading}
               </h2>
               <span className="mt-5 block h-1.25 w-16 bg-crux-blue" />

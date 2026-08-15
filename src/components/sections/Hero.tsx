@@ -20,7 +20,7 @@ export default function Hero() {
 
       <Container className="relative py-28 sm:py-40">
         <Reveal className="max-w-2xl">
-          <h1 className="text-4xl font-bold uppercase leading-tight tracking-tight text-white sm:text-6xl">
+          <h1 className="text-display font-bold text-white">
             {hero.headlineLead}{" "}
             <span className="text-crux-blue">{hero.headlineEmphasis}</span>
           </h1>

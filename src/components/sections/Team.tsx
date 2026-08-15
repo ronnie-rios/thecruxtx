@@ -44,7 +44,7 @@ export default function Team({
                 className="h-64 w-52 shrink-0 rounded-lg object-cover object-top shadow-sm sm:h-72 sm:w-60"
               />
               <div className="text-center sm:text-left">
-                <h3 className="text-xl font-bold uppercase tracking-wide text-crux-slate">
+                <h3 className="text-h3 font-bold text-crux-slate">
                   {person.name}
                 </h3>
                 <p className="mt-1 text-sm font-medium uppercase tracking-wider text-crux-blue">

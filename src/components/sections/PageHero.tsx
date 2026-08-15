@@ -34,7 +34,7 @@ export default function PageHero({
 
       <Container>
         <Reveal className="max-w-3xl">
-          <h1 className="text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">
+          <h1 className="text-h1 font-bold text-white">
             {heading}
           </h1>
           <span className="mt-5 block h-1.25 w-16 bg-crux-blue" />

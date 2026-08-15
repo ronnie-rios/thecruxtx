@@ -9,7 +9,7 @@ export default function Mission() {
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal>
-            <h2 className="text-h2 font-bold leading-snug text-crux-slate sm:text-h1">
+            <h2 className="text-h1 font-bold text-crux-slate">
               {mission.heading}
             </h2>
             <span className="mt-5 block h-1.25 w-16 bg-crux-blue" />
@@ -19,7 +19,7 @@ export default function Mission() {
             <blockquote className="mt-8 border-l-2 border-crux-blue pl-6 text-base leading-relaxed text-crux-gray">
               {cruxDefinition.definition}
             </blockquote>
-            <p className="mt-7 text-xl font-bold uppercase tracking-tight text-crux-slate">
+            <p className="mt-7 font-display text-xl font-bold leading-[1.2] text-crux-slate">
               {cruxDefinition.emphasis}
             </p>
             <dl className="mt-10 flex gap-12">

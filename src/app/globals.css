@@ -39,15 +39,19 @@
 
   /* Type */
   --font-sans: var(--font-jost);
+  --font-display: var(--font-playfair), Georgia, serif;
   --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
 
-  --text-display: 3.5rem; /* 56px */
-  --text-display--line-height: 0.9;
-  --text-h1: 2.25rem; /* 36px */
-  --text-h1--line-height: 0.95;
-  --text-h2: 1.75rem; /* 28px */
+  /* Headings scale fluidly 40→60, 32→48, 26→36, 20→25. The rem term in each
+     preferred value keeps text responsive to browser zoom (WCAG 1.4.4);
+     never make these vw-only. Body and below stay fixed. */
+  --text-display: clamp(2.5rem, 1.6rem + 3.6vw, 3.75rem);
+  --text-display--line-height: 1.2;
+  --text-h1: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --text-h1--line-height: 1.2;
+  --text-h2: clamp(1.625rem, 1.35rem + 1.1vw, 2.25rem);
   --text-h2--line-height: 1.2;
-  --text-h3: 1.375rem; /* 22px */
+  --text-h3: clamp(1.25rem, 1.1rem + 0.5vw, 1.5625rem);
   --text-h3--line-height: 1.3;
   --text-h4: 1.125rem; /* 18px */
   --text-h4--line-height: 1.4;
@@ -89,6 +93,17 @@ body {
   color: var(--color-crux-slate);
   font-size: var(--text-base);
   line-height: 1.55;
+}
+
+/* Headings are Playfair Display in sentence case; the caps treatment below
+   belongs to eyebrow and decorative text only. */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 /* Uppercase titles carry the tight brand line-heights; body stays sentence case. */
