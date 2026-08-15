@@ -26,7 +26,7 @@ export const cruxDefinition = {
 
 export const stats: readonly Stat[] = [
   { value: "2000", label: "Operating Since" },
-  { value: "15", label: "Years of Experience" },
+  { value: "20+", label: "Years of Experience" },
 ];
 
 export const advisorSection = {

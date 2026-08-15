@@ -13,15 +13,26 @@ import {
 } from "@/content/about";
 import { testimonialsSection } from "@/content/home";
 import { marc, testimonials } from "@/content/site";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema, graph } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: { absolute: aboutMeta.title },
   description: aboutMeta.description,
+  alternates: { canonical: "/about-us" },
 };
+
+const breadcrumbs = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about-us" },
+  ]),
+);
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={breadcrumbs} />
       <PageHero
         heading={aboutHero.heading}
         body={aboutHero.body}

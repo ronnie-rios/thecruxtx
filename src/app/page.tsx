@@ -12,6 +12,7 @@ import { marc, testimonials } from "@/content/site";
 export const metadata: Metadata = {
   title: { absolute: homeMeta.title },
   description: homeMeta.description,
+  alternates: { canonical: "/" },
 };
 
 export default function Home() {

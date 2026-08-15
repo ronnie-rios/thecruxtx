@@ -4,15 +4,26 @@ import ContactForm from "@/components/forms/ContactForm";
 import Container from "@/components/ui/Container";
 import { contactHero, contactMeta, contactSection } from "@/content/contact";
 import { marc } from "@/content/site";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema, graph } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: { absolute: contactMeta.title },
   description: contactMeta.description,
+  alternates: { canonical: "/contact" },
 };
+
+const breadcrumbs = graph(
+  breadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Contact", path: "/contact" },
+  ]),
+);
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={breadcrumbs} />
       <PageHero
         heading={contactHero.heading}
         body={contactHero.body}
