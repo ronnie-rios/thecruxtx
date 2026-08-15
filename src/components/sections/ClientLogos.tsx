@@ -1,14 +1,14 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import { clients } from "@/content/home";
 
 export default function ClientLogos() {
   return (
-    <section className="border-y border-slate-200 bg-surface-alt py-16">
+    <section className="border-y border-slate-200 bg-crux-cloud py-16">
       <Container>
         <Reveal>
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-slate-body">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-crux-gray">
             {clients.heading}
           </p>
           <div className="mt-10 grid grid-cols-2 items-center gap-10 sm:grid-cols-4">

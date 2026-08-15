@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+﻿import type { ReactNode } from "react";
 
 export default function SectionHeading({
   children,
@@ -14,14 +14,15 @@ export default function SectionHeading({
   return (
     <div className={align === "center" ? "text-center" : ""}>
       <h2
-        className={`text-3xl sm:text-4xl font-bold uppercase tracking-tight ${
-          tone === "light" ? "text-white" : "text-ink"
+        className={`text-h2 sm:text-h1 font-bold uppercase tracking-wide ${
+          tone === "light" ? "text-white" : "text-crux-slate"
         } ${className}`}
       >
         {children}
       </h2>
+      {/* Recurring 5px Crux Blue rule beneath the heading. */}
       <span
-        className={`mt-4 block h-0.5 w-16 bg-accent ${
+        className={`mt-4 block h-1.25 w-16 bg-crux-blue ${
           align === "center" ? "mx-auto" : ""
         }`}
       />

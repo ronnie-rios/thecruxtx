@@ -1,4 +1,4 @@
-import Container from "@/components/ui/Container";
+﻿import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import { marc } from "@/content/site";
@@ -18,29 +18,29 @@ export default function ContactCards({
       <Container>
         <Reveal className="flex flex-col items-center">
           <SectionHeading align="center">{heading}</SectionHeading>
-          <p className="mt-6 max-w-xl text-center text-base leading-relaxed text-slate-body">
+          <p className="mt-6 max-w-xl text-center text-base leading-relaxed text-crux-gray">
             {body}
           </p>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mx-auto mt-12 max-w-sm rounded-sm border border-slate-200 bg-white p-8 text-center shadow-sm">
-            <h3 className="text-lg font-bold uppercase tracking-wide text-ink">
+          <div className="mx-auto mt-12 max-w-sm rounded-lg border border-border-subtle bg-white p-8 text-center shadow-sm">
+            <h3 className="text-lg font-bold uppercase tracking-wide text-crux-slate">
               {marc.name}
             </h3>
-            <p className="mt-1 text-sm font-medium uppercase tracking-wider text-accent">
+            <p className="mt-1 text-sm font-medium uppercase tracking-wider text-crux-blue">
               {marc.title}
             </p>
-            <div className="mt-6 space-y-2 text-sm text-slate-body">
+            <div className="mt-6 space-y-2 text-sm text-crux-gray">
               <a
                 href={`tel:${marc.phone.replace(/[^\d+]/g, "")}`}
-                className="block transition-colors hover:text-accent"
+                className="block transition-colors hover:text-crux-blue"
               >
                 {marc.phone}
               </a>
               <a
                 href={`mailto:${marc.email}`}
-                className="block transition-colors hover:text-accent"
+                className="block transition-colors hover:text-crux-blue"
               >
                 {marc.email}
               </a>

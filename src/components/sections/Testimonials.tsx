@@ -1,3 +1,4 @@
+﻿import { Star } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
@@ -5,11 +6,12 @@ import type { Testimonial } from "@/content/types";
 
 function Stars({ count }: { count: number }) {
   return (
-    <div className="flex gap-1 text-accent" aria-label={`${count} out of 5 stars`}>
+    <div
+      className="flex gap-1 text-crux-blue-light"
+      aria-label={`${count} out of 5 stars`}
+    >
       {Array.from({ length: count }, (_, i) => (
-        <span key={i} aria-hidden="true">
-          ★
-        </span>
+        <Star key={i} size={16} strokeWidth={2} aria-hidden="true" />
       ))}
     </div>
   );
@@ -23,7 +25,7 @@ export default function Testimonials({
   items: readonly Testimonial[];
 }) {
   return (
-    <section className="bg-ink py-20 sm:py-28">
+    <section className="bg-crux-navy py-20 sm:py-28">
       <Container>
         <Reveal className="flex flex-col items-center">
           <SectionHeading align="center" tone="light">
@@ -39,7 +41,7 @@ export default function Testimonials({
                 <blockquote className="mt-5 text-sm leading-relaxed text-white/80">
                   {item.quote}
                 </blockquote>
-                <figcaption className="mt-6 text-xs font-semibold uppercase tracking-wider text-accent-soft">
+                <figcaption className="mt-6 text-xs font-semibold uppercase tracking-wider text-crux-blue-light">
                   {item.attribution}
                 </figcaption>
               </figure>

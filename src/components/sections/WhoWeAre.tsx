@@ -1,4 +1,4 @@
-import Container from "@/components/ui/Container";
+﻿import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
@@ -10,7 +10,7 @@ export default function WhoWeAre() {
       <Container>
         <Reveal>
           <SectionHeading>{whoWeAre.heading}</SectionHeading>
-          <p className="mt-8 max-w-3xl text-base leading-relaxed text-slate-body sm:text-lg">
+          <p className="mt-8 max-w-3xl text-base leading-relaxed text-crux-gray sm:text-lg">
             {whoWeAre.body}
           </p>
           <div className="mt-9">

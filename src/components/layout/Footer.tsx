@@ -1,10 +1,10 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Container from "@/components/ui/Container";
 import { footer, marc, nav, site } from "@/content/site";
 
 export default function Footer() {
   return (
-    <footer className="bg-ink text-white">
+    <footer className="bg-crux-navy text-white">
       <Container className="py-14">
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           <div>
@@ -21,7 +21,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm uppercase tracking-wider text-white/70 transition-colors hover:text-accent-soft"
+                className="text-sm uppercase tracking-wider text-white/70 transition-colors hover:text-crux-blue-light"
               >
                 {link.label}
               </Link>
@@ -33,13 +33,13 @@ export default function Footer() {
             <p className="mt-1">{marc.title}</p>
             <a
               href={`tel:${marc.phone.replace(/[^\d+]/g, "")}`}
-              className="mt-3 block transition-colors hover:text-accent-soft"
+              className="mt-3 block transition-colors hover:text-crux-blue-light"
             >
               {marc.phone}
             </a>
             <a
               href={`mailto:${marc.email}`}
-              className="block transition-colors hover:text-accent-soft"
+              className="block transition-colors hover:text-crux-blue-light"
             >
               {marc.email}
             </a>

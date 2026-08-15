@@ -1,20 +1,108 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0f1c2e;
-  --color-ink-soft: #1c2f47;
-  --color-slate-body: #4a5a6e;
-  --color-accent: #c8912f;
-  --color-accent-soft: #e0b665;
-  --color-surface: #ffffff;
-  --color-surface-alt: #f5f6f8;
+  /* Brand */
+  --color-crux-blue: #0097cf;
+  --color-crux-blue-light: #a6d3ec;
+  --color-crux-blue-dark: #005789;
+  --color-crux-navy: #002060;
+  --color-crux-slate: #44546a;
+  --color-crux-gray: #666666;
+  --color-crux-cloud: #e7e6e6;
 
-  --font-sans: var(--font-montserrat);
+  /* Interaction */
+  --color-accent-hover: #0079aa;
+  --color-accent-active: #005789;
+  --color-accent-soft: #e9f6fc;
+
+  /* Status */
+  --color-success: #006b34;
+  --color-warning: #b7791f;
+  --color-danger: #c8362c;
+  --color-link: #0563c1;
+
+  /* UI neutral ramp */
+  --color-gray-25: #fcfcfd;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f2f4f7;
+  --color-gray-200: #e4e7ec;
+  --color-gray-300: #d0d5dd;
+  --color-gray-400: #98a2b3;
+  --color-gray-500: #667085;
+  --color-gray-600: #475467;
+  --color-gray-700: #344054;
+  --color-gray-800: #1d2939;
+  --color-gray-900: #101828;
+
+  --color-surface: #ffffff;
+  --color-border-subtle: #e4e7ec;
+
+  /* Type */
+  --font-sans: var(--font-jost);
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
+
+  --text-display: 3.5rem; /* 56px */
+  --text-display--line-height: 0.9;
+  --text-h1: 2.25rem; /* 36px */
+  --text-h1--line-height: 0.95;
+  --text-h2: 1.75rem; /* 28px */
+  --text-h2--line-height: 1.2;
+  --text-h3: 1.375rem; /* 22px */
+  --text-h3--line-height: 1.3;
+  --text-h4: 1.125rem; /* 18px */
+  --text-h4--line-height: 1.4;
+  --text-base: 1rem; /* 16px */
+  --text-base--line-height: 1.55;
+  --text-sm: 0.875rem; /* 14px */
+  --text-sm--line-height: 1.5;
+  --text-xs: 0.75rem; /* 12px */
+  --text-xs--line-height: 1.4;
+  --text-xxs: 0.6875rem; /* 11px */
+  --text-xxs--line-height: 1.4;
+
+  --tracking-caps: 0.08em;
+  --tracking-wide: 0.04em;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  /* Elevation — low-spread, cool-neutral, never coloured */
+  --shadow-xs: 0 1px 2px rgba(20, 25, 34, 0.04);
+  --shadow-sm: 0 1px 3px rgba(20, 25, 34, 0.06), 0 1px 2px rgba(20, 25, 34, 0.04);
+  --shadow-md: 0 4px 8px rgba(20, 25, 34, 0.07), 0 2px 4px rgba(20, 25, 34, 0.04);
+  --shadow-lg: 0 12px 20px rgba(20, 25, 34, 0.08), 0 4px 8px rgba(20, 25, 34, 0.04);
+  --shadow-xl: 0 20px 32px rgba(20, 25, 34, 0.1), 0 8px 12px rgba(20, 25, 34, 0.05);
+
+  /* Motion — quick and functional, 120–280ms */
+  --ease-crux: cubic-bezier(0.2, 0, 0, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 280ms;
 }
 
 body {
   background: var(--color-surface);
-  color: var(--color-ink);
+  color: var(--color-crux-slate);
+  font-size: var(--text-base);
+  line-height: 1.55;
+}
+
+/* Uppercase titles carry the tight brand line-heights; body stays sentence case. */
+.text-eyebrow {
+  font-size: var(--text-xxs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+}
+
+/* Figures and metrics align in columns. */
+.tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
 }
 
 /* Anchored sections sit below the sticky header when jumped to. */

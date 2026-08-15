@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Jost } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { site } from "@/content/site";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+// Jost is the nearest free geometric match to the brand face, Century Gothic.
+const jost = Jost({
+  variable: "--font-jost",
   subsets: ["latin"],
   display: "swap",
 });
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${montserrat.variable} h-full antialiased`}>
+    <html lang="en" className={`${jost.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
         <Header />
         <main className="flex-1">{children}</main>

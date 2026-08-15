@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import { cruxDefinition, mission, stats } from "@/content/about";
@@ -8,10 +8,10 @@ export default function Mission() {
     <section className="py-20 sm:py-28">
       <Container>
         <Reveal className="mx-auto max-w-3xl text-center">
-          <h2 className="text-2xl font-bold leading-snug text-ink sm:text-3xl">
+          <h2 className="text-2xl font-bold leading-snug text-crux-slate sm:text-3xl">
             {mission.heading}
           </h2>
-          <p className="mt-6 text-base leading-relaxed text-slate-body">
+          <p className="mt-6 text-base leading-relaxed text-crux-gray">
             {mission.body}
           </p>
         </Reveal>
@@ -27,19 +27,19 @@ export default function Mission() {
             />
           </Reveal>
           <Reveal delay={0.1}>
-            <blockquote className="border-l-2 border-accent pl-6 text-base leading-relaxed text-slate-body">
+            <blockquote className="border-l-2 border-crux-blue pl-6 text-base leading-relaxed text-crux-gray">
               {cruxDefinition.definition}
             </blockquote>
-            <p className="mt-7 text-xl font-bold uppercase tracking-tight text-ink">
+            <p className="mt-7 text-xl font-bold uppercase tracking-tight text-crux-slate">
               {cruxDefinition.emphasis}
             </p>
             <dl className="mt-10 flex gap-12">
               {stats.map((stat) => (
                 <div key={stat.label}>
-                  <dt className="text-xs font-semibold uppercase tracking-wider text-slate-body">
+                  <dt className="text-xs font-semibold uppercase tracking-wider text-crux-gray">
                     {stat.label}
                   </dt>
-                  <dd className="mt-2 text-4xl font-bold text-accent">
+                  <dd className="mt-2 text-4xl font-bold text-crux-blue">
                     {stat.value}
                   </dd>
                 </div>

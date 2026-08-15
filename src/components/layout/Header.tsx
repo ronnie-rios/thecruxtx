@@ -1,7 +1,8 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { nav, navCta, site } from "@/content/site";
@@ -31,7 +32,7 @@ export default function Header() {
         >
           <Link
             href="/"
-            className="text-lg font-bold uppercase tracking-[0.2em] text-ink"
+            className="text-lg font-bold uppercase tracking-[0.2em] text-crux-slate"
           >
             {site.name}
           </Link>
@@ -41,7 +42,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium uppercase tracking-wider text-ink-soft transition-colors hover:text-accent"
+                className="text-sm font-medium uppercase tracking-wider text-crux-slate transition-colors hover:text-crux-blue"
               >
                 {link.label}
               </Link>
@@ -56,11 +57,9 @@ export default function Header() {
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
             aria-label="Toggle navigation menu"
-            className="md:hidden p-2 text-ink"
+            className="md:hidden rounded-md p-2 text-crux-slate transition-colors duration-150 ease-crux hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-crux-blue/45"
           >
-            <span className="block h-0.5 w-6 bg-current" />
-            <span className="mt-1.5 block h-0.5 w-6 bg-current" />
-            <span className="mt-1.5 block h-0.5 w-6 bg-current" />
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
@@ -71,7 +70,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-sm font-medium uppercase tracking-wider text-ink-soft"
+                className="text-sm font-medium uppercase tracking-wider text-crux-slate"
               >
                 {link.label}
               </Link>

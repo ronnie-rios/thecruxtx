@@ -1,13 +1,14 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { ReactNode } from "react";
 
 const base =
-  "inline-flex items-center justify-center rounded-sm px-7 py-3 text-sm font-semibold uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+  "inline-flex items-center justify-center rounded-md px-7 py-3 text-sm font-semibold uppercase tracking-wide transition-all duration-200 ease-crux focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-crux-blue/45 motion-reduce:transform-none motion-reduce:transition-none";
 
 const variants = {
-  solid: "bg-accent text-white hover:bg-accent-soft",
+  solid:
+    "bg-crux-blue text-white hover:bg-accent-hover active:bg-accent-active active:translate-y-px",
   outline:
-    "border border-current text-ink hover:bg-ink hover:text-white hover:border-ink",
+    "border border-crux-blue text-crux-blue hover:bg-accent-soft active:bg-crux-blue-light/40 active:translate-y-px",
 } as const;
 
 type Variant = keyof typeof variants;
@@ -43,7 +44,7 @@ export function SubmitButton({
     <button
       type="submit"
       disabled={pending}
-      className={`${base} ${variants.solid} disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 ${className}`}
+      className={`${base} ${variants.solid} disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:bg-crux-blue disabled:active:translate-y-0 ${className}`}
     >
       {children}
     </button>

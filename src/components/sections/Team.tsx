@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
@@ -18,7 +18,7 @@ export default function Team({
   withBio?: boolean;
 }) {
   return (
-    <section className="bg-surface-alt py-20 sm:py-28">
+    <section className="bg-crux-cloud py-20 sm:py-28">
       <Container>
         <Reveal className="flex justify-center">
           <SectionHeading align="center">{heading}</SectionHeading>
@@ -35,14 +35,14 @@ export default function Team({
                 className="h-48 w-48 shrink-0 rounded-full object-cover sm:h-56 sm:w-56"
               />
               <div className="text-center sm:text-left">
-                <h3 className="text-xl font-bold uppercase tracking-wide text-ink">
+                <h3 className="text-xl font-bold uppercase tracking-wide text-crux-slate">
                   {person.name}
                 </h3>
-                <p className="mt-1 text-sm font-medium uppercase tracking-wider text-accent">
+                <p className="mt-1 text-sm font-medium uppercase tracking-wider text-crux-blue">
                   {person.title}
                 </p>
                 {withBio && person.bio && (
-                  <div className="mt-5 space-y-4 text-sm leading-relaxed text-slate-body">
+                  <div className="mt-5 space-y-4 text-sm leading-relaxed text-crux-gray">
                     {person.bio.map((paragraph) => (
                       <p key={paragraph.slice(0, 40)}>{paragraph}</p>
                     ))}

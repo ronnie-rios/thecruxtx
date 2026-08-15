@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { SubmitButton } from "@/components/ui/Button";
@@ -23,7 +23,7 @@ function validate(values: Record<string, string>): Errors {
 }
 
 const inputClass =
-  "w-full rounded-sm border border-slate-300 bg-white px-4 py-3 text-sm text-ink placeholder:text-slate-400 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent";
+  "w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-sm text-crux-slate transition-colors duration-150 ease-crux placeholder:text-gray-400 focus:border-crux-blue focus:outline-none focus:ring-3 focus:ring-crux-blue/45";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -60,7 +60,7 @@ export default function ContactForm() {
     return (
       <p
         role="status"
-        className="rounded-sm border border-accent/40 bg-accent/5 px-6 py-8 text-center text-sm text-ink"
+        className="rounded-sm border border-crux-blue/40 bg-crux-blue/5 px-6 py-8 text-center text-sm text-crux-slate"
       >
         {form.successMessage}
       </p>
@@ -69,7 +69,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
-      <p className="text-sm text-slate-body">{form.intro}</p>
+      <p className="text-sm text-crux-gray">{form.intro}</p>
 
       {form.fields.map((field) => {
         const errorId = `${field.name}-error`;
@@ -78,10 +78,10 @@ export default function ContactForm() {
           <div key={field.name}>
             <label
               htmlFor={field.name}
-              className="mb-2 block text-xs font-semibold uppercase tracking-wider text-ink"
+              className="mb-2 block text-xs font-semibold uppercase tracking-wider text-crux-slate"
             >
               {field.label}
-              {field.required && <span className="text-accent"> *</span>}
+              {field.required && <span className="text-crux-blue"> *</span>}
             </label>
 
             {field.type === "textarea" ? (
