@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/schema";
+import { services } from "@/content/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -12,6 +13,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.8,
     },
+    {
+      url: absoluteUrl("/services"),
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.8,
+    },
+    ...services.map((service) => ({
+      url: absoluteUrl(`/services/${service.slug}`),
+      lastModified,
+      changeFrequency: "yearly" as const,
+      priority: 0.7,
+    })),
     {
       url: absoluteUrl("/contact"),
       lastModified,

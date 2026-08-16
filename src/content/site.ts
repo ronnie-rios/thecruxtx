@@ -12,6 +12,7 @@ export const site = {
 export const nav: readonly NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
+  { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" },
 ];
 
